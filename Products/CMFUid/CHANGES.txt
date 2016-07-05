@@ -4,6 +4,8 @@ Products.CMFUid Changelog
 2.2.2 (unreleased)
 ------------------
 
+- Use zope.interface decorator.
+  [gforcada]
 
 2.2.1 (2010-07-04)
 ------------------
