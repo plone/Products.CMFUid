@@ -29,6 +29,13 @@ from Products.CMFUid.interfaces import IUniqueIdAnnotationManagement
 from Products.CMFUid.interfaces import IUniqueIdGenerator
 from Products.CMFUid.interfaces import IUniqueIdHandler
 
+try:
+    from Products.CMFCore.indexing import PortalCatalogProcessor
+    from Products.CMFCore.interfaces import IPortalCatalogQueueProcessor
+    indexing = True
+except ImportError:
+    indexing = False
+
 
 class DummyUid:
     """A dummy uid that surely is of different type of the generated ones.
@@ -71,6 +78,9 @@ class UniqueIdHandlerTests(SecurityTest):
                           , IUniqueIdAnnotationManagement
                           )
         sm.registerUtility(self.root.portal_uidgenerator, IUniqueIdGenerator)
+
+        if indexing:
+            sm.registerUtility(provided=IPortalCatalogQueueProcessor, factory=PortalCatalogProcessor)
 
         # Make sure we have our indices/columns
         uid_name = self.root.portal_uidhandler.UID_ATTRIBUTE_NAME

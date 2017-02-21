@@ -4,6 +4,9 @@ Products.CMFUid Changelog
 2.2.2 (unreleased)
 ------------------
 
+- Adapt tests to the new indexing operations queueing.
+  Part of PLIP 1343: https://github.com/plone/Products.CMFPlone/issues/1343
+  [gforcada]
 
 2.2.1 (2010-07-04)
 ------------------
