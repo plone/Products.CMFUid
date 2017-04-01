@@ -1,7 +1,7 @@
 Products.CMFUid Changelog
 =========================
 
-2.2.2 (unreleased)
+2.2.2 (2017-04-01)
 ------------------
 
 - Adapt tests to the new indexing operations queueing.
